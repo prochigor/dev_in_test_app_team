@@ -1,4 +1,9 @@
+import logging
 import subprocess
+
+from framework.logging_config import configure_logging
+
+configure_logging()
 
 
 def android_get_desired_capabilities():
@@ -24,7 +29,8 @@ def get_udid():
 
     if len(lines) > 1:
         udid = lines[1].split('\t')[0]
+        logging.info(f"device udid: {udid}")
         return udid
     else:
-        print("No devices found.")
+        logging.error("device not found")
         return None

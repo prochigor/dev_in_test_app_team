@@ -28,3 +28,19 @@ class LoginPage(Page):
 
     def is_login_failed(self):
         return self.find_element('//android.widget.EditText[@resource-id="com.ajaxsystems:id/authLoginEmail"]')
+
+    def return_to_main_page(self):
+        self.find_element(
+            '//android.widget.ImageView[@resource-id="com.ajaxsystems:id/menuDrawer"]'
+        ).click()
+        self.find_element(
+            '//android.widget.TextView[@resource-id="com.ajaxsystems:id/title" and @text="App Settings"]'
+        ).click()
+        self.find_element(
+            '//android.widget.TextView[@resource-id="com.ajaxsystems:id/title" and @text="Sign Out"]'
+        ).click()
+
+    def click_go_back_button(self):
+        self.find_element(
+            '//android.widget.ImageButton[@resource-id="com.ajaxsystems:id/back"]'
+        ).click()
